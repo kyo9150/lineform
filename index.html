@@ -10,7 +10,7 @@
 <body>
 
     <form class="w-75 mx-auto">
-        <p class="mt-3">氏名</p>
+        <p class="mt-3">氏名1</p>
         <div>
             <select class="form-control w-100 mt-1" name="example1" required>
                 <option value="サンプル1">サンプル1</option>
@@ -91,11 +91,11 @@
 
         $(function () {
             $('form').submit(function () {
-                const name    = $('input[name="example1"]').val();
-                const bangou = $('input[name="example2"]').val();
-                const shushoujou  = $('input[name="example3"]').val();
-                const keika  = $('input[name="example4"]').val();
-                const hatunetu = $('input[name="example5"]').val();
+                const name    = $('select[name="example1"]').val();
+                const bangou = $('select[name="example2"]').val();
+                const shushoujou  = $('select[name="example3"]').val();
+                const keika  = $('select[name="example4"]').val();
+                const hatunetu = $('select[name="example5"]').val();
                 const msg = `${name}\n${bangou}\n${shushoujou}\n${keika}\n${hatunetu}`;
                 sendText(msg);
                 return false;
