@@ -64,12 +64,15 @@
             const liffId = "1657445062-p87Xn7qP";
             initializeLiff(liffId);
         })
-   
+        var id = ""
         function initializeLiff(liffId) {
-            liff.init({
+            id = liff.init({
                 liffId: liffId
             }).then(() => {
                 initializeApp();
+                return liff.getDecodedIDToken().then(function(profile) {
+                    return profile.sub
+                })
             }).catch((err) => {
                 console.log('LIFF Initialization failed ', err);
             });
@@ -86,23 +89,9 @@
             });
         }
 
-        function getid(){
-            return liff.init({
-                liffId: "1657445062-p87Xn7qP", // Use own liffId
-            })
-            .then(() => {
-                return liff.getDecodedIDToken().then(function(profile) {
-                    return profile.sub
-                })
-
-            });
-        }
-
         function sendText2(text){
             var request = new XMLHttpRequest();
             
-            var id = getid()
- 
             request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+id, true);
             request.responseType = 'json';
 
