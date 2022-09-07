@@ -64,9 +64,9 @@
             const liffId = "1657445062-p87Xn7qP";
             initializeLiff(liffId);
         })
-        var id = ""
+        var object = ""
         function initializeLiff(liffId) {
-            id = liff.init({
+            object = liff.init({
                 liffId: liffId
             }).then(() => {
                 initializeApp();
@@ -89,7 +89,9 @@
 
         function sendText2(text){
             var request = new XMLHttpRequest();
-            
+            var id = object.then(function(profile) {
+                    return profile.sub
+                })
             request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+id, true);
             request.responseType = 'json';
 
