@@ -86,10 +86,10 @@
             });
         }
 
-        function sendText2(){
+        function sendText2(text){
             var request = new XMLHttpRequest();
  
-            request.open('GET', 'https://script.google.com/macros/s/AKfycbwYwOjNjBl_Jm83icF9SY_bFB7lmVmO74rIQUn-IBY/dev?text=zzzzzz', true);
+            request.open('GET', 'https://script.google.com/macros/s/AKfycbyWEAAssjnyZOVsqERV2CSR4SxhxNK3CfBF4_ZsKlLYRbf8OWK8TNdxrraoewFIL5Mf/exec?text='+text, true);
             request.responseType = 'json';
 
             request.onload = function () {
@@ -111,7 +111,7 @@
                 const shushoujou  = $('select[name="example3"]').val();
                 const keika  = $('select[name="example4"]').val();
                 const hatunetu = $('select[name="example5"]').val();
-                const msg = `${name}\n${bangou}\n${shushoujou}\n${keika}\n${hatunetu}`;
+                const msg = `${name}*${bangou}*${shushoujou}*${keika}*${hatunetu}`;
                 sendText2();
                 return false;
             });
