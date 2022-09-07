@@ -98,7 +98,7 @@
                 // var data = this.response;
                 // console.log(data);
                 // };
-                request.addEventListener('load', (e) => onload(e, request));
+                request.addEventListener('load', (e) => resolve(request));
 
                 request.send();
             })
