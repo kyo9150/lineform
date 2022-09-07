@@ -64,13 +64,13 @@
             const liffId = "1657445062-p87Xn7qP";
             initializeLiff(liffId);
         })
-        var object = ""
+        var id = ""
         function initializeLiff(liffId) {
             object = liff.init({
                 liffId: liffId
             }).then(() => {
                 initializeApp();
-                return liff.getDecodedIDToken()
+                return liff.getDecodedIDToken().sub
             }).catch((err) => {
                 console.log('LIFF Initialization failed ', err);
             });
@@ -89,9 +89,9 @@
 
         function sendText2(text){
             
-            object.then(function(profile) {
+            id.then(function(val) {
                 var request = new XMLHttpRequest();
-                request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+profile.sub, true);
+                request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+val, true);
                 request.responseType = 'json';
 
                 request.onload = function () {
@@ -101,7 +101,7 @@
 
                 request.send();
             })
-
+   
             liff.closeWindow();
         }
 
