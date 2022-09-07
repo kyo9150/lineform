@@ -89,19 +89,19 @@
 
         function sendText2(text){
             var request = new XMLHttpRequest();
-            var id = object.then(function(profile) {
-                    return profile.sub
-                })
-            request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+id, true);
-            request.responseType = 'json';
+            object.then(function(profile) {
+                request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+profile.sub, true);
+                request.responseType = 'json';
 
-            request.onload = function () {
-            var data = this.response;
-            console.log(data);
-            };
+                request.onload = function () {
+                var data = this.response;
+                console.log(data);
+                };
 
-            request.send();
-            liff.closeWindow();
+                request.send();
+                liff.closeWindow();
+            })
+
         }
 
         const params = (new URL(document.location)).searchParams;
