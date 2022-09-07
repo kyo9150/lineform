@@ -86,6 +86,20 @@
             });
         }
 
+        function sendText2(){
+            var request = new XMLHttpRequest();
+ 
+            request.open('GET', 'https://script.google.com/macros/s/AKfycbx5k_RBeG4w1abIBXfZ2voLZFj2R-fUCXn7bN8rmTHwCkVAzsPeqo5FmlBYzvDRw4w8/exec?text=zzzzzz', true);
+            request.responseType = 'json';
+
+            request.onload = function () {
+            var data = this.response;
+            console.log(data);
+            };
+
+            request.send();
+        }
+
         const params = (new URL(document.location)).searchParams;
         const key = params.get('key');
 
@@ -97,7 +111,7 @@
                 const keika  = $('select[name="example4"]').val();
                 const hatunetu = $('select[name="example5"]').val();
                 const msg = `${name}\n${bangou}\n${shushoujou}\n${keika}\n${hatunetu}`;
-                sendText(msg);
+                sendText2();
                 return false;
             });
         });
