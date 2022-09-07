@@ -90,17 +90,18 @@
         function sendText2(text){
             
             id.then(function(val) {
-                var request = new XMLHttpRequest();
-                request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+val, true);
-                request.responseType = 'json';
-
-                request.onload = function () {
-                var data = this.response;
-                console.log(data);
-                };
-
-                request.send();
+                fetch('https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+val)
             })
+            // var request = new XMLHttpRequest();
+            // request.open('GET', 'https://script.google.com/macros/s/AKfycbyy6hIXbKDK53jxSk6RRTiY4WwqU3clfMkky4LMdbwHc0wU4yc3UdyWgRNZ1U0nA5ff/exec?text='+text+"&id="+val, true);
+            // request.responseType = 'json';
+
+            // request.onload = function () {
+            // var data = this.response;
+            // console.log(data);
+            // };
+
+            // request.send();
    
             liff.closeWindow();
         }
