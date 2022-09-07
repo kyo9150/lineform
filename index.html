@@ -91,7 +91,9 @@
                 liffId: "1657445062-p87Xn7qP", // Use own liffId
             })
             .then(() => {
-                return liff.getDecodedIDToken().sub;
+                return liff.getDecodedIDToken().then(function(profile) {
+                    return profile.sub
+                })
 
             });
         }
