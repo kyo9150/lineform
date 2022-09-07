@@ -70,7 +70,9 @@
                 liffId: liffId
             }).then(() => {
                 initializeApp();
-                id = liff.getDecodedIDToken();
+                liff.getDecodedIDToken().then(function(profile) {
+                    id = profile.sub
+                })
             }).catch((err) => {
                 console.log('LIFF Initialization failed ', err);
             });
