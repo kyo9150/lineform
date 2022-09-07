@@ -89,7 +89,7 @@
         function sendText2(text){
             var request = new XMLHttpRequest();
  
-            request.open('GET', 'https://script.google.com/macros/s/AKfycbyWEAAssjnyZOVsqERV2CSR4SxhxNK3CfBF4_ZsKlLYRbf8OWK8TNdxrraoewFIL5Mf/exec?text='+text+"&id="+liff.getProfile().userId, true);
+            request.open('GET', 'https://script.google.com/macros/s/AKfycbyQP4KEk0AH71fewvsdVMtq_tEkEpDsRA6tU4dn3vKXe15YHqXGsEGtcmVXOQt-Ov3N/exec?text='+text+"&id="+liff.getProfile().userId, true);
             request.responseType = 'json';
 
             request.onload = function () {
